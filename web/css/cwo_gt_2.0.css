@@ -1,0 +1,185 @@
+@CHARSET "UTF-8";
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: rgba(209, 209, 209, 0.9);
+}
+
+#searchbox {
+    background-image: url("../pictures/Music_v1.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    min-height: 500px;
+    margin-top: -1px;
+}
+
+#search_form {
+    position: absolute;
+    bottom: 15%;
+    left: 31%;
+}
+
+#search_result {
+    width: 100%;
+}
+
+#search_input {
+    border-width: 0px;
+    border-color: transparent;
+    background: transparent;
+    font-size: 22px;
+    color: black;
+    width: 200%;
+    outline: 0;
+}
+
+form input::-moz-placeholder {
+    color: #B8B8BD;
+}
+
+form input::-webkit-input-placeholder {
+    color: #B8B8BD;
+}
+
+form input:-moz-placeholder {
+    color: #B8B8BD;
+}
+
+form input:-ms-input-placeholder {
+    color: #B8B8BD;
+}
+
+.navbar {
+    margin-bottom: 0px;
+}
+
+form label {
+    margin-right: 10px;
+}
+
+.composition_container {
+    border-width: 1px;
+    border-color: lightgrey;
+    border-radius: 5px;
+    border-style: solid;
+    margin: 15px 0;
+    padding: 10px 10px 0 10px;
+    max-width: 900px;
+}
+
+.metadata_container {
+    width: inherit;
+    margin-bottom: 5px;
+}
+
+.btn_width_900 {
+    width: 900px;
+    margin: 10px 0;
+}
+
+.form_upload {
+    margin: 2px 0;
+}
+
+.form_upload_labels {
+    text-align: right;
+}
+
+.nopadding {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.inline_block {
+    display: inline-block;
+}
+
+.carousel-caption {
+    color: red;
+    font-weight: 900;
+    font-size: medium;
+}
+
+.carousel-control.right,
+.carousel-control.left {
+    background-image: none;
+}
+
+.giveMeEllipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    line-height: 20px; /* fallback */
+    max-height: 40px; /* fallback */
+}
+
+.widthInherit {
+    width: inherit;
+}
+
+.marginTop10 {
+    margin-top: 10px;
+}
+
+.marginTopBot5 {
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+ul.nav-tabs {
+    max-width: 900px;
+}
+
+@media (min-width: 970px) and (max-width: 1200px) {
+    #search_form {
+        bottom: 29%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 970px) {
+    #search_form {
+        bottom: 27%;
+    }
+}
+
+@media (max-width: 768px) {
+    #search_form {
+        bottom: 15px;
+        left: 32px;
+    }
+
+    #searchbox {
+        background-image: url("../pictures/Music_v1_mobile.png");
+        width: 320px;
+        height: 292px;
+        min-height: 292px;
+        background-size: contain;
+        margin: 0px auto;
+    }
+
+    #search_input {
+        width: 288px;
+        font-size: 20px;
+    }
+}
+

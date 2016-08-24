@@ -1,0 +1,113 @@
+{% extends ':pages:base.html.twig' %}
+{% block title %}
+    DB Upload page
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h3>Database upload form:</h3>
+
+                {{ form_start(upload_form) }}
+                {% for each_form in upload_form %}
+                    <div class="row form_upload">
+                        <div class="col-md-4 form_upload_labels nopadding">
+                            {% if not loop.last %}{{ form_label(each_form) }}{% endif %}
+                        </div>
+                        <div class="col-md-8 nopadding">
+                    {{ form_widget(each_form) }}
+                        </div>
+                    </div>
+                {% endfor %}
+                {{ form_end(upload_form) }}
+            </div>
+            <div class="col-md-4">
+                <h3>Response code list:
+                    <small>
+                        <ul>
+                            <li>-2 ~~ Failed to get response (Unexpected error occurred. Response given not a string.)</li>
+                            <li>-1 ~~ Failed to login</li>
+                            <li>0 ~~ No response</li>
+                            <li>1 ~~ All done (OK)</li>
+                            <li>2 ~~ No task given (nothing 2 do here)</li>
+                            <li>3 ~~ DB internal error. Check logs for more information.</li>
+                            <li>4 ~~ Number of authors doesn't match with given id's amount</li>
+                        </ul>
+                    </small>
+                </h3>
+                <h3>Metadata required:
+                    <small>
+                        <ul>
+                            <li>Login</li>
+                            <li>Password</li>
+                            <li>AuthorsNames</li>
+                            <li>CompositionsName</li>
+                            <li>CompositionsDescription</li>
+                            <li>CompositionsPath</li>
+                            <li>CompositionsPublished</li>
+                            <li>CompositionsCreated</li>
+                            <li>CompositionsTags</li>
+                            <li>ImagesFilename</li>
+                        </ul>
+                    </small>
+                </h3>
+                <h3>All possible metadata:
+                    <small>
+                        <ul>
+                            <li>Login</li>
+                            <li>Password</li>
+                            <li>Override</li>
+                            <li>AddGlobal</li>
+                            <li>AddAuthors</li>
+                            <li>AddComposition</li>
+                            <li>AddImage</li>
+                            <li>AuthorsId</li>
+                            <li>AuthorsNames</li>
+                            <li>CompositionsId</li>
+                            <li>CompositionsName</li>
+                            <li>CompositionsDescription</li>
+                            <li>CompositionsPath</li>
+                            <li>CompositionsPublished</li>
+                            <li>CompositionsCreated</li>
+                            <li>CompositionsTags</li>
+                            <li>CompositionsGenre</li>
+                            <li>CompositionsInstrument</li>
+                            <li>ImagesId</li>
+                            <li>ImagesFilename</li>
+                            <li>ImagesPage</li>
+                            <li>ImagesCompositionId</li>
+                            <li>ImagesCleanerVersion</li>
+                            <li>AuthorsCompositionsAuthorId</li>
+                            <li>AuthorsCompositionsCompositionId</li>
+                        </ul>
+                    </small>
+                </h3>
+
+            </div>
+        </div>
+        <div class="row">
+
+            {% set response = output|split('<|s|>') %}
+            {% if response %}
+                <h3>
+                    Response:
+                    <font color="#8b0000">
+                        {% if response|length>1 %}
+                            <ul>
+                                {% for k in 0..(response|length-2) %}
+                                    <li>{{ response[k] }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            {{ response[0] }}
+                        {% endif %}
+                    </font>
+                </h3>
+            {% endif %}
+        </div>
+
+    </div>
+{% endblock %}
+
+
+

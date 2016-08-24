@@ -1,0 +1,47 @@
+<div class="composition_container" id="{{ composition_instance.composition_id }}">
+    <div class="container metadata_container">
+        <div class="row">
+            <h2><b>Composition: </b>{{ composition_instance.composition_name }}</h2>
+        </div>
+        <div class="row marginTopBot5"><b>By:</b>
+            {% for author in composition_instance.authors %}
+                <a href="{{ config.domain }}author/{{ author.id }}"> <b>{{ author.name }}</b></a><span class="caret"></span>
+            {% endfor %}
+        </div>
+        <div class="row marginTopBot5"><b>Description:</b> {{ composition_instance.description }}</div>
+        <div class="row"><b>Created:</b> {{ composition_instance.created }}</div>
+    </div>
+    <ul class="nav nav-pills" role="tablist">
+        <li>
+            <div class="dropdown">
+                <button id="Download{{ composition_instance.composition_id }}" class="btn btn-success" type="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Download
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="Download{{ composition_instance.composition_id }}">
+                    <li><a href="{{ config.domain }}getZip/{{ composition_instance.path }}">Images (PNG)</a></li>
+                    <li class="divider"></li>
+                    <li><a>Document (PDF)</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="pull-right">
+            <div class="dropdown">
+                <button id="Share{{ composition_instance.composition_id }}" class="btn btn-primary" type="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Share
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="Share{{ composition_instance.composition_id }}">
+                    <li><a href="#">Facebook</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a>Etc</a></li>
+                </ul>
+
+            </div>
+        </li>
+    </ul>
+            {% include ':elements:carousel.html.twig' %}
+</div>

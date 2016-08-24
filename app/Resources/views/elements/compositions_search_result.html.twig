@@ -1,0 +1,10 @@
+{% if search_compositions_results == NULL %}
+    {% include ':elements:empty_result.html.twig' %}
+{% else %}
+    {% for composition_instance in search_compositions_results %}
+        {% include ':elements:composition_container_min.html.twig' %}
+    {% endfor %}
+    {% if search_compositions_results|length >= config.search_amount %}
+        {{ include(':elements:compositions_next_button.html.twig') }}
+    {% endif %}
+{% endif %}

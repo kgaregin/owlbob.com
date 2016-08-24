@@ -1,0 +1,34 @@
+{# Nav tabs #}
+<ul class="nav nav-tabs" role="tablist">
+    {% for letter in alphabet %}
+        <li {% if loop.first %}class="active"{% endif %}>
+            <a href="#{{ letter }}" aria-controls="{{ letter }}" role="tab" data-toggle="tab"><b>{{ letter }}</b></a>
+        </li>
+    {% endfor %}
+</ul>
+{# Tab panes #}
+<div class="tab-content marginTop10">
+
+    {% for letter in alphabet %}
+        <div role="tabpanel" class="tab-pane fade {% if loop.first %}in active{% endif %}" id="{{ letter }}">
+            {% for author_instance in author_instances %}
+
+                {% if author_instance.author_name|first|capitalize == letter%}
+                    <a href="{{ path('author', {'id':author_instance.author_id}) }}">{{ author_instance.author_name }}</a>
+                    <br>
+                {% endif %}
+                {% if loop.parent.loop.last %}
+                    {% if author_instance.author_name|first|capitalize not in alphabet %}
+                        <a href="{{ path('author', {'id':author_instance.author_id}) }}">{{ author_instance.author_name }}</a>
+                        <br>
+                    {% endif %}
+
+
+                {% endif %}
+
+
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>
+

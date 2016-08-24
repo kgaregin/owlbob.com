@@ -1,0 +1,31 @@
+{% extends ':pages:base.html.twig' %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div id="searchbox" class="col-md-9">
+                {{ form_start(search_form) }}
+                {{ form_widget(search_form.search_request, {'id': 'search_input','attr': {'placeholder': 'Composer name or composition' }}) }}
+                {{ form_end(search_form) }}
+            </div>
+            <div class="col-md-3">
+                Hello world
+            </div>
+        </div>
+        {% block search_result %}
+            <div class="container">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#compositions"><strong>Compositions</strong></a></li>
+                    <li><a data-toggle="tab" href="#authors"><strong>Authors</strong></a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="compositions" class="tab-pane fade in active">
+                        {{ include(':elements:compositions_search_result.html.twig') }}
+                    </div>
+                    <div id="authors" class="tab-pane fade">
+                        {{ include(':elements:authors_search_result.html.twig') }}
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}

@@ -1,0 +1,11 @@
+<div class="composition_container" id="{{ author_instance.author_id }}">
+    <div class="container metadata_container">
+        <div class="row">
+            <div class = "inline_block">
+            <h2><b>Author:</b> <a href="{{ config.domain }}author/{{ author_instance.author_id }}">{{ author_instance.author_name }}</a></h2>
+            </div>
+                    <h3><b>Compositions:</b></h3>
+                    {% include ':elements:compositions_list.html.twig' %}
+        </div>
+    </div>
+</div>

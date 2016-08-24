@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - png32649@localhost" uuid="66c276e7-2e3d-4529-8c2e-9de096479bc7">
+    <database-info product="MySQL" version="5.7.11" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
+    <schema name="" catalog="png32649"/>
+    <table name="AuthorsCompositions" schema="" catalog="png32649" type="TABLE">
+      <column name="author_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="composition_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <foreign-key name="authorscompositions_ibfk_1" columns="author_id" ref-table="authors" ref-schema="" ref-catalog="png32649" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <foreign-key name="authorscompositions_ibfk_2" columns="composition_id" ref-table="compositions" ref-schema="" ref-catalog="png32649" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <index name="authors_id" unique="false" columns="author_id"/>
+      <index name="compositions_id" unique="false" columns="composition_id"/>
+    </table>
+    <table name="authors" schema="" catalog="png32649" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id,name"/>
+      <exported-key name="authorscompositions_ibfk_1" table="AuthorsCompositions" schema="" catalog="png32649" columns="author_id"/>
+      <index name="id" unique="true" columns="id"/>
+      <index name="name" unique="true" columns="name"/>
+      <index name="id_2" unique="false" columns="id"/>
+      <index name="id_3" unique="false" columns="id"/>
+    </table>
+    <table name="compositions" schema="" catalog="png32649" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="description" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="path" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="published" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91" remarks="cHVibGlzaCBkYXRl"/>
+      <column name="created" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91" remarks="Y29tcG9zaXRpb24gY3JlYXRlIGRhdGU="/>
+      <column name="tags" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1" remarks="dGFncw=="/>
+      <column name="genre" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="instrument" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="authorscompositions_ibfk_2" table="AuthorsCompositions" schema="" catalog="png32649" columns="composition_id"/>
+      <exported-key name="images_ibfk_1" table="images" schema="" catalog="png32649" columns="composition_id"/>
+      <index name="id" unique="true" columns="id"/>
+      <index name="path" unique="true" columns="path"/>
+      <index name="name" unique="false" columns="name"/>
+      <index name="name_2" unique="false" columns="name"/>
+    </table>
+    <table name="images" schema="" catalog="png32649" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" remarks="aW1hZ2UgaWQ=" autoIncrement="true"/>
+      <column name="filename" sqlType="VARCHAR" precision="64" scale="0" nullable="false" jdbcType="12"/>
+      <column name="page" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="composition_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="cleaner_version" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="images_ibfk_1" columns="composition_id" ref-table="compositions" ref-schema="" ref-catalog="png32649" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <index name="composition_id" unique="false" columns="id"/>
+      <index name="id" unique="false" columns="composition_id"/>
+    </table>
+    <table name="logs" schema="" catalog="png32649" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="table_name" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="query" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="response" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="date_time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+  </data-source>
+</component>

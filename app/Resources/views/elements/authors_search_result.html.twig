@@ -1,0 +1,10 @@
+{% if search_authors_results == NULL %}
+    {% include ':elements:empty_result.html.twig' %}
+{% else %}
+    {% for author_instance in search_authors_results %}
+        {% include ':elements:author_container_min.html.twig' %}
+    {% endfor %}
+    {% if search_authors_results|length >= config.search_amount %}
+        {{ include(':elements:authors_next_button.html.twig') }}
+    {% endif %}
+{% endif %}

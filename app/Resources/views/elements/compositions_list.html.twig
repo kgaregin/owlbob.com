@@ -1,0 +1,10 @@
+<div class="well" id="CompositionsOfAuthorId{{ author_instance.author_id }}">
+    <div class="container widthInherit">
+        {% for composition in author_instance.compositions %}
+            <div class="row giveMeEllipsis marginTopBot5">
+                <b>{{ loop.index }}.</b>
+                <a href="{{ path('composition', {'id': composition.id}) }}">{{ composition.name }}</a>
+            </div>
+        {% endfor %}
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="composition_container" id="{{ author_instance.author_id }}">
+    <div class="container metadata_container">
+        <div class="row">
+            <div class="inline_block">
+                <h4><b>Author:</b> <a
+                            href="{{ path('author', {'id':author_instance.author_id}) }}">{{ author_instance.author_name }}</a>
+                </h4>
+            </div>
+            <a class="btn btn-default pull-right" role="button" data-toggle="collapse"
+               onclick="loadCompositions({{ author_instance.author_id }})"
+               href="#collapseAuthor{{ author_instance.author_id }}" aria-expanded="false"
+               aria-controls="collapseAuthor{{ author_instance.author_id }}">
+                Show all compositions <span class="caret"></span>
+            </a>
+
+            <div class="collapse" id="collapseAuthor{{ author_instance.author_id }}">
+                <div class="well" id="CompositionsOfAuthorId{{ author_instance.author_id }}">
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>

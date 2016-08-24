@@ -1,0 +1,13 @@
+{% extends ':pages:base.html.twig' %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            {% if composition_instance == false %}
+                {% include ':elements:composition_not_found.html.twig' %}
+            {% else %}
+                {% include ':elements:composition_container.html.twig' %}
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

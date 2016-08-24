@@ -1,0 +1,19 @@
+<div class="composition_container" id="{{ composition_instance.composition_id }}">
+    <div class="container metadata_container">
+        <div class="row">
+            <a href="{{ path('composition', {'id': composition_instance.composition_id }) }}">
+                <div class="link_style_1 giveMeEllipsis"><b>{{ composition_instance.composition_name }}</b></div>
+            </a>
+        </div>
+        <div class="row giveMeEllipsis marginTopBot5">
+            <b>By:</b>
+            {% for author in composition_instance.authors %}
+                <a href="{{ path('author', {'id': author.id }) }}"> {{ author.name }}</a><span class="caret"></span>
+            {% endfor %}
+        </div>
+        <div class="row marginTopBot5">
+            <div class="giveMeEllipsis"><b>Description:</b> {{ composition_instance.description }}</div>
+        </div>
+        <div class="row"><b>Created:</b> {{ composition_instance.created }}</div>
+    </div>
+</div>
